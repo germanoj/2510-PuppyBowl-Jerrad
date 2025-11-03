@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Puppy Bowl Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="index.css" />
-    <script src="index.js" defer></script>
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <h1>🐶 Puppy Bowl Admin</h1>
+      <p>Manage players: view details, add puppies, and remove from roster.</p>
+    </header>
+
+    <main class="grid">
+      <section>
+        <h2>Roster</h2>
+        <div id="roster" class="roster" aria-live="polite"></div>
+      </section>
+
+      <section>
+        <h2>Selected Puppy</h2>
+        <div id="details" class="details" aria-live="polite">
+          <p>
+            No player selected. Click a puppy from the roster to see details.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Add a Puppy</h2>
+        <form id="add-form">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Kirby" />
+          </div>
+          <div class="field">
+            <label for="breed">Breed</label>
+            <input id="breed" name="breed" required placeholder="Corgi" />
+          </div>
+
+          <div class="field">
+            <label for="team">Team (optional)</label>
+            <select id="team" name="teamId">
+              <option value="">— Unassigned —</option>
+            </select>
+          </div>
+
+          <button type="submit">Add Puppy</button>
+        </form>
+        <p id="form-status" class="status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="index.js" type="module"></script>
   </body>
 </html>
